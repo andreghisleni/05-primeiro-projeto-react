@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import ContentLoader, { List } from 'react-content-loader';
+import ContentLoader from 'react-content-loader';
 
 import logoImg from '../../assets/logo.svg';
 
@@ -102,7 +102,7 @@ const Repository: React.FC = () => {
       <Issues>
         {issues &&
           issues.map(issue => (
-            <a key={issue.id} href={issue.html_url} target="_blank">
+            <a key={issue.id} href={issue.html_url}>
               <div>
                 <strong>{issue.title}</strong>
                 <p>{issue.user.login}</p>
@@ -110,22 +110,6 @@ const Repository: React.FC = () => {
               <FiChevronRight size={20} />
             </a>
           ))}
-        {issues && (
-          <>
-            <a>
-              <List />
-            </a>
-            <a>
-              <List />
-            </a>
-            <a>
-              <List />
-            </a>
-            <a>
-              <List />
-            </a>
-          </>
-        )}
       </Issues>
     </>
   );
